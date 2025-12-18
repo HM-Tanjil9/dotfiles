@@ -1,0 +1,319 @@
+@import "mocha.css";
+@import "../omarchy/current/theme/waybar.css";
+
+@define-color bg_main rgba(25, 25, 25, 0.4);
+@define-color bg_main_white rgba(245, 245, 245, 0.65);
+
+
+
+* {
+    /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
+    font-family: "SpaceMono Nerd Font";
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* old one */
+/* window#waybar {
+    background: @bg_main;
+    color: @foreground;
+    border-radius: 7rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: @foreground;
+} */
+
+window#waybar  {
+  box-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  /* border-radius: 20px; */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: 
+  linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 30%,
+    rgba(255, 255, 255, 0.02) 100% 
+  ),
+  rgba(25, 25, 25, 0.45);
+  
+  border-bottom: 2px solid alpha(@foreground, 0.9);
+  /* border-radius: 0 0 10 10; */
+  transition-property: background-color;
+  transition-duration: .5s;
+  border-left: 2px solid alpha(@foreground, 0.9);
+  border-right: 2px solid alpha(@foreground, 0.9);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    color: @foreground;
+}
+
+#window {
+  text-shadow: 0px 0px 2px alpha(@foreground, 0.6);
+  padding: 0;
+  margin: 0;
+}
+
+
+window#waybar.empty #window {
+    /*background-color: transparent;*/
+    padding: 0px;
+    border: 0px;
+    opacity: 0.5;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#bluetooth,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#language,
+#mpd {
+    background-color: transparent;
+    padding: 0 10px;
+    border-radius: 7rem;
+    /*border-width: 2px;
+    border-style: solid;
+    border-color: @teal;*/
+}
+
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#custom-media:hover,
+#tray:hover,
+#mode:hover,
+#bluetooth:hover,
+#idle_inhibitor:hover,
+#scratchpad:hover,
+#power-profiles-daemon:hover,
+#language:hover,
+#mpd:hover {
+    background-color: transparent;
+    color: @foreground;
+    opacity: 0.5;
+}
+
+#workspaces {
+    background: transparent;
+    margin: 3px 0px;
+    padding: 10px 9px;
+    margin-left: -6px;
+    margin-top: -2px;
+    margin-bottom: 0px;
+    border-radius: 26px;
+}
+
+#workspaces button {
+    min-width: 6px;
+    min-height: 8px;
+    padding: 1;
+    margin: 0 6px;
+    border-radius: 2px;
+    background-color: alpha(@foreground, 0.75);
+    transition: all 0.15s ease-in-out;
+}
+
+#workspaces button.active,
+#workspaces button:hover {
+    background-color: @foreground;
+    border-radius: 2px;
+    min-width: 25px;
+    transition: all 0.15s ease-in-out;
+}
+#workspaces button.empty {
+    opacity: 0.45;
+}
+
+#workspaces button label {
+    font-size: 0px;
+}
+
+#workspaces button {
+    /* margin-top: 1px; */
+    /* margin-bottom: -1px; */
+    font-size: 12.5px;
+    background: @foreground;
+    font-weight: 800;
+}
+
+
+#custom-omarchy {
+    margin-left: 5px;
+    padding: 0 10px;
+    font-size: 16px;
+    background-color: transparent;
+    border-radius: 7rem;
+    /*border-width: 2px;
+	border-style: solid;
+	border-color: @teal;*/
+}
+#custom-omarchy:hover {
+    background-color: transparent;
+    color: @foreground;
+    opacity: 0.5;
+}
+#custom-search {
+    padding: 0 10px;
+    font-size: 20px;
+    background-color: transparent;
+    border-radius: 7rem;
+    /*border-width: 2px;
+	border-style: solid;
+	border-color: @teal;*/
+}
+#custom-search:hover {
+    background-color: transparent;
+    color: @foreground;
+}
+#custom-swaync {
+    padding: 0 10px;
+    background-color: transparent;
+    border-radius: 7rem;
+    /*border-width: 2px;
+	border-style: solid;
+	border-color: @teal;*/
+}
+#custom-swaync:hover {
+    background-color: transparent;
+    color: @foreground;
+}
+#custom-power {
+    margin-right: 5px;
+    padding: 0 10px;
+    background-color: transparent;
+    border-radius: 7rem;
+
+    /*border-width: 2px;
+	border-style: solid;
+	border-color: @teal;*/
+}
+#custom-power:hover {
+    background-color: transparent;
+    color: @foreground;
+    opacity: 0.5;
+}
+/*
+#taskbar {
+}
+
+#taskbar button {
+	border-radius: 7rem;
+	background: transparent;
+	border-width: 2px;
+	border-style: solid;
+	border-color: @teal;
+	margin-left: 2px;
+	margin-right: 2px;
+	padding-left: 8px;
+	padding-right: 8px;
+	color: @text;
+}
+
+#taskbar button.active {
+	border-radius: 7rem;
+	background-color: @surface0;
+	border-width: 2px;
+	border-style: solid;
+	border-color: @teal;
+}
+*/
+
+#window {
+    border-radius: 7rem;
+    /*border-width: 2px;
+    border-style: solid;
+    border-color: @teal;*/
+    padding: 0 10px;
+    background-color: transparent;
+    /*color: @forground;*/
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#window:hover {
+    background-color: transparent;
+    color: @forground;
+}
+#pulseaudio-slider slider {
+    min-width: 0px;
+    min-height: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-width: 80px;
+    min-height: 5px;
+    border-radius: 5px;
+}
+
+#pulseaudio-slider highlight {
+    min-height: 10px;
+    border-radius: 5px;
+}
+
+#backlight-slider slider {
+    min-width: 0px;
+    min-height: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#backlight-slider trough {
+    min-width: 80px;
+    min-height: 10px;
+    border-radius: 5px;
+}
+
+#backlight-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+}
+
+#mpris {
+    border-radius: 7rem;
+    background-color: transparent;
+    padding: 0 10px;
+    /*border-width: 2px;
+	border-style: solid;
+	border-color: @teal;*/
+}
+#mpris:hover {
+    background-color: transparent;
+    color: @foreground;
+}
+
+#custom-cava_mviz {
+    color: @foreground;
+}
